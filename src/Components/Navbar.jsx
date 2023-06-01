@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Images/main-logo.png";
-import { BsCart2 } from "react-icons/bs";
+// import { BsCart2 } from "react-icons/bs";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -13,9 +13,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
+// import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+// import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import TimeToLeaveIcon from '@mui/icons-material/TimeToLeave';
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false); //to make it responsive in smaller devices
@@ -31,19 +33,24 @@ const Navbar = () => {
       path: "/about"
     },
     {
-      text: "Testimonials",
-      icon: <CommentRoundedIcon />,
-      path: "/testimonial"
+      text: "Inventroy",
+      icon: <TimeToLeaveIcon />,
+      path: "/inventory"
     },
+    // {
+    //   text: "Testimonials",
+    //   icon: <CommentRoundedIcon />,
+    //   path: "/testimonial"
+    // },
     {
       text: "Contact",
       icon: <PhoneRoundedIcon />,
       path: "/contact"
     },
     {
-      text: "Cart",
-      icon: <ShoppingCartRoundedIcon />,
-      path: "/cart"
+      text: "Admin",
+      icon: <AdminPanelSettingsOutlinedIcon />,
+      path: "/admin"
     }
   ];
 
@@ -55,10 +62,11 @@ const Navbar = () => {
       <div className="navbar-links-container">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/testimonial">Testimonial</Link>
+        <Link to="/inventory">Inventory</Link>
+        {/* <Link to="/testimonial">Testimonial</Link> */}
         <Link to="/contact">Contact</Link>
-        <Link to="">
-          <BsCart2 className="navbar-cart-icon" />
+        <Link to="/admin">
+          <AdminPanelSettingsOutlinedIcon className="navbar-cart-icon" />
         </Link>
         <button className="primary-button">Reserve Now</button>
       </div>
