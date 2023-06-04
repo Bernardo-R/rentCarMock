@@ -1,10 +1,7 @@
 import React from "react";
-import ChooseMeals from "../Images/choose-image.png";
-import DeliveryMeals from "../Images/delivery-image.png";
-import TimeToLeaveRoundedIcon from '@mui/icons-material/TimeToLeaveRounded';
-import Car from "../Images/car.svg"
-import calendar from "../Images/calendar.svg"
-import creditCard from "../Images/creditCard.svg"
+import Car from "../Images/car.svg";
+import calendar from "../Images/calendar.svg";
+import creditCard from "../Images/creditCard.svg";
 
 const HowItWorks = () => {
   const workInfoData = [
@@ -37,11 +34,11 @@ const HowItWorks = () => {
       <div className="work-section-bottom">
         {workInfoData.map((data) => (
           <div className="work-section-info" key={data.title}>
-                <div className="info-boxes-img-container">
-                    <img src={data.image} alt="" />
-                </div>
-                <h2>{data.title}</h2>
-                <p>{data.text}</p>
+            <div className="info-boxes-img-container">
+              <img src={data.image} alt="" />
+            </div>
+            <h2>{data.title}</h2>
+            <p>{data.text}</p>
           </div>
         ))}
       </div>

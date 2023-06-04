@@ -17,10 +17,7 @@ img {
 body {
   max-width: 100%;
   overflow-x: hidden;
-}
-
-body {
-  background-color: #f6f6f6;
+  background-color: #f6f6f6 !important;
 }
 
 nav {
@@ -96,7 +93,6 @@ nav {
 .primary-heading {
   font-size: clamp(2rem, 5vw, 4rem);
   color: #4c4c4c;
-  /* line-height: 5rem; */
   max-width: 600px;
 }
 .primary-text {
@@ -120,6 +116,15 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
+.secondary-button a {
+  text-decoration: none;
+  color: inherit;
+}
+.secondary-button a:hover {
+  color: inherit;
+}
+
 .secondary-button svg {
   margin-left: 0.75rem;
   font-size: 1.5rem;
@@ -158,25 +163,7 @@ nav {
   margin-top: 2rem;
   display: flex;
 }
-/* .watch-video-button {
-  margin-left: 2rem;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  border-radius: 5rem;
-  font-size: 1.1rem;
-  cursor: pointer;
-  font-weight: 600;
-  color: #484848;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-/* .watch-video-button svg {
-  font-size: 3rem;
-  margin-right: 1rem;
-} */
+
 .contact-page-wrapper h1 {
   max-width: 900px !important;
 }
@@ -221,9 +208,7 @@ nav {
   margin-right: 1.25rem;
   color: #585858;
 }
-/* .footer-section-one {
-  border: 2px solid blue;
-} */
+
 .footer-section-two {
   flex: 1;
   display: flex;
@@ -240,37 +225,7 @@ nav {
   color: #4c4c4c;
   cursor: pointer;
 }
-.testimonial-section-bottom {
-  margin-top: 2rem;
-  background-color: white;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 750px;
-  border-radius: 2rem;
-  flex-direction: column;
-  text-align: center;
-  box-shadow: 0 0.5rem 1rem #fe9e0d;
-}
-.testimonial-section-bottom {
-  margin: 2rem auto;
-}
-.testimonial-section-bottom p {
-  font-weight: 700;
-  color: #515151;
-  max-width: 500px;
-  font-size: 1.1rem;
-  margin: 2rem 0rem;
-}
-.testimonials-stars-container svg {
-  margin: 0rem 0.25rem;
-  font-size: 1.5rem;
-  color: #fe9e0d;
-}
-.testimonial-section-bottom h2 {
-  margin-top: 1.5rem;
-}
+
 .work-section-wrapper {
   margin-top: 5rem;
 }
@@ -339,6 +294,11 @@ nav {
   color: #505050;
   margin: 1rem 2rem;
   box-shadow: 0 0.5rem 1rem #545454;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
 }
 
 .card-title {
@@ -420,14 +380,7 @@ nav {
   .primary-subheading {
     text-align: center;
   }
-  /* .watch-video-button {
-    margin-left: 0rem !important;
-    margin-top: 1rem;
-    font-size: 1rem !important;
-  }
-  .watch-video-button svg {
-    margin-right: 0.5rem !important;
-  } */
+
   .about-section-image-container {
     margin-right: 0rem !important;
   }

@@ -1,0 +1,16 @@
+.adminFormsWrapper {
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.adminFormsWrapper div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* input {
+  text-align: center;
+} */

@@ -1,140 +1,72 @@
-import React from 'react'
+import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Table from 'react-bootstrap/Table';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Button from "@mui/material/Button";
+import BackgroundImg from "../Images/about-background.png";
 
-const Inventory = () => {
+function Inventory() {
   const API = "https://643d8ccb6c30feced81531da.mockapi.io/cars";
 
-    const [data,  setData] = useState([])
-    const [formData, setFormData] = useState({
-        // Initialize form input fields
-        name: '',
-        email: '',
-        // Add other fields as needed
-      });
+  const [data, setData] = useState([]);
 
-      useEffect(() => {
-        fetchData();
-      }, []);
-    
-      const fetchData = async () => {
-        try {
-          const response = await axios.get(API);
-          setData(response.data);
-          // console.log(response.data)
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-      const handleCreate = async () => {
-        try {
-          const response = await axios.post(API, formData);
-          setData([...data, response.data]);
-          setFormData({
-            name: '',
-            email: '',
-          });
-        } catch (error) {
-          console.error('Error creating resource:', error);
-        }
-      };
-
-      const handleUpdate = async (id) => {
-        try {
-          const response = await axios.put(`${API}/${id}`, formData);
-          const updatedData = data.map((item) => {
-            if (item.id === id) {
-              return response.data;
-            }
-            return item;
-          });
-          setData(updatedData);
-        } catch (error) {
-          console.error('Error updating resource:', error);
-        }
-      };
-
-      const handleDelete = async (id) => {
-        try {
-          await axios.delete(`${API}/${id}`);
-          const filteredData = data.filter((item) => item.id !== id);
-          setData(filteredData);
-        } catch (error) {
-          console.error('Error deleting resource:', error);
-        }
-      };
-
-
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(API);
+      setData(response.data);
+      // console.log(response.data)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
-    <div>
-      <Table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Maker</th>
-            <th>Model</th>
-            <th>Type</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{index}</td>
-              <td>{item.Manufactor}</td>
-              <td>{item.Model}</td>
-              <td>{item.Type}</td>
-              <td> <Button variant="contained" color="error" startIcon={<DeleteIcon />}>
-        Delete
-      </Button></td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <div>
-        <div>
-          <Box 
-          component="form" sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },}} 
-          noValidate
-          autoComplete="off">
-          <TextField
-            id="outlined-maker-input"
-            label="Manufactor"
-            type="text"
-            autoComplete="Honda"
-          />
-          <TextField
-            id="outlined-model-input"
-            label="Model"
-            type="text"
-            autoComplete="Honda"
-          />
-          <TextField
-            id="outlined-type-input"
-            label="Type"
-            type="text"
-            autoComplete="Honda"
-          />
-          <Button variant="contained" endIcon={<SendIcon />}>
-            Send
-          </Button>
-
-
-          </Box>
+    <>
+      <div className="work-section-wrapper">
+        <div className="work-section-top">
+          <h1 className="primary-heading">Best selection in market</h1>
+          <p className="primary-text">
+            Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
+            elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
+          </p>
         </div>
-        <div></div>
+        <div className="card-container">
+          <div className="about-background-image-container">
+            <img src={BackgroundImg} alt="" />
+          </div>
+
+          {data.map((item, index) => (
+            <div className="row">
+              <Card
+                className="cardInventory"
+                style={{ width: "18rem" }}
+                key={index}
+              >
+                <Card.Img variant="top" src={item.Image} />
+                <Card.Body>
+                  <Card.Title>
+                    {item.Manufactor} {item.Model}
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="contained" className="card-btn">
+                    Reserve
+                  </Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default Inventory
+export default Inventory;

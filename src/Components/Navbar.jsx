@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Images/main-logo.png";
-// import { BsCart2 } from "react-icons/bs";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -13,11 +12,9 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-// import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-// import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-import TimeToLeaveIcon from '@mui/icons-material/TimeToLeave';
-import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import TimeToLeaveIcon from "@mui/icons-material/TimeToLeave";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false); //to make it responsive in smaller devices
@@ -25,45 +22,39 @@ const Navbar = () => {
     {
       text: "Home",
       icon: <HomeIcon />,
-      path: "/"
+      path: "/",
     },
     {
       text: "About",
       icon: <InfoIcon />,
-      path: "/about"
+      path: "/about",
     },
     {
       text: "Inventroy",
       icon: <TimeToLeaveIcon />,
-      path: "/inventory"
+      path: "/inventory",
     },
-    // {
-    //   text: "Testimonials",
-    //   icon: <CommentRoundedIcon />,
-    //   path: "/testimonial"
-    // },
     {
       text: "Contact",
       icon: <PhoneRoundedIcon />,
-      path: "/contact"
+      path: "/contact",
     },
     {
       text: "Admin",
       icon: <AdminPanelSettingsOutlinedIcon />,
-      path: "/admin"
-    }
+      path: "/admin",
+    },
   ];
 
   return (
     <nav>
       <div className="nav-logo-container">
-        <img src={Logo} width= '200px'alt="Company Logo" />
+        <img src={Logo} width="200px" alt="Company Logo" />
       </div>
       <div className="navbar-links-container">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/inventory">Inventory</Link>
-        {/* <Link to="/testimonial">Testimonial</Link> */}
         <Link to="/contact">Contact</Link>
         <Link to="/admin">
           <AdminPanelSettingsOutlinedIcon className="navbar-cart-icon" />
@@ -73,9 +64,7 @@ const Navbar = () => {
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
       </div>
-
-      {/* creating slider so in smaller screen menu bar will go to right side of screen */}
-      <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right"> 
+      <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right">
         <Box
           sx={{ width: 250 }}
           role="presentation"
@@ -96,20 +85,7 @@ const Navbar = () => {
         </Box>
       </Drawer>
     </nav>
-  )
-    // function CustomLink({ to, children, ...props}){
-    //   const path = window.location.pathname
+  );
+};
 
-    //   return (
-    //     <li className={path === to ? "active" : ""}>
-    //       <Link to = { to } {...props}>
-    //         { children }
-    //       </Link>
-    //     </li>
-    //   )
-    // }         
-
- 
-}
-
-export default Navbar
+export default Navbar;
