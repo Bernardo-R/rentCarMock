@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/About.module.css";
 import AboutBackground from "../Images/about-background.png";
 import AboutCarImage from "../Images/about-car-img.png";
 import HowItWorks from "./HowItWorks";

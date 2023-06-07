@@ -13,6 +13,8 @@ import BrowserUpdatedRoundedIcon from "@mui/icons-material/BrowserUpdatedRounded
 const AdminInventory = () => {
   const API = "https://643d8ccb6c30feced81531da.mockapi.io/cars";
 
+  // using useState to update value in variables
+
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState({
     // Initialize form input fields
@@ -31,7 +33,7 @@ const AdminInventory = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  // this function will request data from API and update data State
   const fetchData = async () => {
     try {
       const response = await axios.get(API);
@@ -41,7 +43,7 @@ const AdminInventory = () => {
       console.error("Error fetching data:", error);
     }
   };
-
+  // this function will send data to API
   const handleCreate = async () => {
     try {
       const response = await axios.post(API, formData);
@@ -55,7 +57,7 @@ const AdminInventory = () => {
       console.error("Error creating resource:", error);
     }
   };
-
+  // this function will update data by id in API
   const handleUpdate = async () => {
     try {
       const { id, ...updatedFields } = updateData;
@@ -77,7 +79,7 @@ const AdminInventory = () => {
       console.error("Error updating resource:", error);
     }
   };
-
+  //  this function will delete data by id
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API}/${id}`);
@@ -101,6 +103,7 @@ const AdminInventory = () => {
           </tr>
         </thead>
         <tbody>
+          {/* this logic will map the data hold in variable data and display it  */}
           {data.map((item, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
@@ -122,35 +125,27 @@ const AdminInventory = () => {
           ))}
         </tbody>
       </Table>
+
+      {/* form to add */}
       <div className={styles.adminFormsWrapper}>
-        <div className="addForm text-bg-light rounded-3">
+        <div className="card-admin addForm text-bg-light rounded-3">
           <h4>Add Vehicle</h4>
           <Box
             component="form"
             sx={{
-              "& .MuiTextField-root": {
-                m: 1,
-                width: "25ch",
-              },
+              "& > :not(style)": { m: 1, width: "25ch" },
             }}
             noValidate
             autoComplete="off"
-            className=""
           >
             <TextField
-              id="outlined-maker-input"
+              id="outlined-basic"
               label="Maker"
               type="text"
               value={formData.Manufactor}
               onChange={(e) =>
                 setFormData({ ...formData, Manufactor: e.target.value })
               }
-              sx={{
-                textAlign: "center",
-                "&::placeholder": {
-                  marginLeft: "10px", // Adjust the margin value as needed
-                },
-              }}
             />
             <TextField
               id="outlined-model-input"
@@ -180,7 +175,8 @@ const AdminInventory = () => {
           </Button>
         </div>
         <div>
-          <div className="h-100  text-bg-light rounded-3">
+          {/* form to update a vehicle by id */}
+          <div className="card-admin">
             <h4>Update Vehicle</h4>
             <Box
               component="form"
