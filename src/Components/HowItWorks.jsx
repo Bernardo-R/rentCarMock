@@ -31,6 +31,7 @@ const HowItWorks = () => {
           elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
         </p>
       </div>
+      {/* to not repeat myself this will map over the array above and display data as cards */}
       <div className="work-section-bottom">
         {workInfoData.map((data) => (
           <div className="work-section-info" key={data.title}>

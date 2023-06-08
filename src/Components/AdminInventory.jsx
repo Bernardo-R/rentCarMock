@@ -46,6 +46,7 @@ const AdminInventory = () => {
   // this function will send data to API
   const handleCreate = async () => {
     try {
+      // sending post request
       const response = await axios.post(API, formData);
       setData([...data, response.data]);
       setFormData({
@@ -83,6 +84,8 @@ const AdminInventory = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API}/${id}`);
+      // filter method is used on the data array,
+      // and it returns a new array that includes only the elements where the id does not match the deleted id.
       const filteredData = data.filter((item) => item.id !== id);
       setData(filteredData);
     } catch (error) {
@@ -95,7 +98,7 @@ const AdminInventory = () => {
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Maker</th>
             <th>Model</th>
             <th>Type</th>
@@ -106,7 +109,7 @@ const AdminInventory = () => {
           {/* this logic will map the data hold in variable data and display it  */}
           {data.map((item, index) => (
             <tr key={index}>
-              <td>{index + 1}</td>
+              <td>{item.id}</td>
               <td>{item.Manufactor}</td>
               <td>{item.Model}</td>
               <td>{item.Type}</td>

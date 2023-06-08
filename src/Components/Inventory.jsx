@@ -14,7 +14,7 @@ function Inventory() {
   useEffect(() => {
     fetchData();
   }, []);
-
+  // this function will request data from API and update data State
   const fetchData = async () => {
     try {
       const response = await axios.get(API);
@@ -39,7 +39,7 @@ function Inventory() {
           <div className="about-background-image-container">
             <img src={BackgroundImg} alt="" />
           </div>
-
+          {/* mapping over the API data and displaying each object as cards */}
           {data.map((item, index) => (
             <div className="row">
               <Card

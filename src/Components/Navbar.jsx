@@ -51,6 +51,7 @@ const Navbar = () => {
       <div className="nav-logo-container">
         <img src={Logo} width="200px" alt="Company Logo" />
       </div>
+      {/* using router to navigate to each link preventing the page to refresh */}
       <div className="navbar-links-container">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
@@ -72,6 +73,7 @@ const Navbar = () => {
           onKeyDown={() => setOpenMenu(false)}
         >
           <List>
+            {/* using map to create links on side menu from data in array above */}
             {menuOptions.map((item) => (
               <ListItem key={item.text} disablePadding>
                 <ListItemButton component={Link} to={item.path}>

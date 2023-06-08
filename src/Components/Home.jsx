@@ -23,7 +23,7 @@ const Home = () => {
             </p>
             <button className="secondary-button">
               <Link to="/inventory">
-                Reserve Now <FiArrowRight />{" "}
+                Reserve Now <FiArrowRight />
               </Link>
             </button>
           </div>
