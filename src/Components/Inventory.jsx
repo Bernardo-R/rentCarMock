@@ -50,7 +50,7 @@ function Inventory() {
                 <Card.Img variant="top" src={item.Image} />
                 <Card.Body>
                   <Card.Title>
-                    {item.Manufactor} {item.Model}
+                    {item.Maker} {item.Model}
                   </Card.Title>
                   <Card.Text>
                     Some quick example text to build on the card title and make

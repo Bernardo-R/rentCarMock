@@ -19,14 +19,14 @@ const AdminInventory = () => {
   const [formData, setFormData] = useState({
     // Initialize form input fields
     Model: "",
-    Manufactor: "",
+    Maker: "",
     Type: "",
   });
 
   const [updateData, setUpdateData] = useState({
     // Initialize form input fields
     Model: "",
-    Manufactor: "",
+    Maker: "",
     Type: "",
   });
 
@@ -51,7 +51,7 @@ const AdminInventory = () => {
       setData([...data, response.data]);
       setFormData({
         Model: "",
-        Manufactor: "",
+        Maker: "",
         Type: "",
       });
     } catch (error) {
@@ -73,7 +73,7 @@ const AdminInventory = () => {
       setUpdateData({
         // id: "",
         Model: "",
-        Manufactor: "",
+        Maker: "",
         Type: "",
       });
     } catch (error) {
@@ -110,7 +110,7 @@ const AdminInventory = () => {
           {data.map((item, index) => (
             <tr key={index}>
               <td>{item.id}</td>
-              <td>{item.Manufactor}</td>
+              <td>{item.Maker}</td>
               <td>{item.Model}</td>
               <td>{item.Type}</td>
               <td>
